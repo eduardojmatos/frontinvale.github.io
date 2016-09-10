@@ -5,6 +5,7 @@ var frontinvale = function() {
 
     removeLoading();
     changeSpeaker();
+    startSW();
   },
 
   stopScroll = false,
@@ -87,6 +88,16 @@ var frontinvale = function() {
 
 // 16:00 - Lightning Talks #2
 
+  };
+
+  startSW = function() {
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("./sw.js").then(function(register) {
+        console.log("SW FTW!!!", register);
+      }).catch(function(err) {
+        console.log("OH NOOOOOO!!!");
+      });
+    }
   };
 
   return { init };
