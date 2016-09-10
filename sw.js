@@ -7,7 +7,7 @@ self.addEventListener('install', function(event) {
 
 	caches.open('frontinvale-v1').then(function(cache) {
 		return cache.addAll([
- 			'/frontinvale.github.io/',
+ 			'https://eduardojmatos.github.io/frontinvale.github.io/',
  			'index.html',
 			'css/main.css',
 			'fonts/cpmono_v07_black.eot',
