@@ -7,6 +7,7 @@ self.addEventListener('install', function(event) {
 
 	caches.open('frontinvale-v1').then(function(cache) {
 		return cache.addAll([
+ 			'index.html',
 			'css/main.css',
 			'fonts/cpmono_v07_black.eot',
 			'fonts/cpmono_v07_black.svg',
@@ -105,7 +106,7 @@ self.addEventListener("fetch", function(event) {
 
 			if (!URL) return response;
 
-			if ( !URL.match(/sw.js/g) && URL.match(location.host) && URL.match(/jquery/g) && URL.match(/analytics/g) ) {
+			if ( !URL.match(/sw.js/g) && URL.match(location.host) ) {
 				caches.open('frontinvale-v1').then(function(cache) {
 					return cache.put(event.request, response.clone());
 				});
